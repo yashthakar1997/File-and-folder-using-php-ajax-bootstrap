@@ -59,9 +59,9 @@ if(isset($_POST['gitStatus'])){
 
 if(isset($_POST['gitadd'])){
     $command = 'git add ' . $_POST['gitadd']; 
-    var_dump( shell_exec($command) );
-    $response = shell_exec('git commit -m '."'test'");
-    $response[1] = shell_exec('git push');
+    shell_exec($command);
+    shell_exec('git commit -m '."'test'");
+    shell_exec('git push');
     // echo $response;
 }
 
