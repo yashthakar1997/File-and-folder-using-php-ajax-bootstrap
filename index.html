@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Github upload</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Upload File / files <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+
+
+        <div class="card p-4 mt-4 show-folder">
+            <form action="upload_file.php" method="post">
+                <div class="form-group">
+                    <button type="button" id="showFiles" class="btn btn-primary">show File and Folders</button>
+                </div>
+                <div class="card responseText d-none">
+                </div>
+                
+                <div class="modal fade d-none" id="showFile" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                Body
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="card p-4 mt-4 create-Folder">
+            <form action="upload_file.php" method="post">
+                <div class="form-group">
+                  <label for="newFolder">Create Folder</label>
+                  <input type="text" class="form-control" name="newFolder" id="newFolder" aria-describedby="helpId" placeholder="">
+                </div>
+                <div class="form-group">
+                  <button type="submit" name="createNewFolder" id="createNewFolder" class="btn btn-primary">Create</button>
+                </div>
+                <div class="alert alert-dismissible fade show d-none" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Holy guacamole!</strong>
+                </div>
+            </form>
+        </div>
+
+        <div class="card p-4 mt-4 Upload-folder">
+            <form action="upload_file.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="">To upload file to local</label>
+                    <input type="file" class="form-control-file" name="image[]" aria-describedby="fileHelpId"
+                        multiple><br>
+                </div>
+                <button type="submit" id="fileUpload" class=" btn btn-primary">Upload File to Server</button>
+
+            </form>
+
+            <div class="progress mt-4">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary bar" role="progressbar"
+                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <div id="status"></div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='script.js'></script>
+</body>
+
+</html>
