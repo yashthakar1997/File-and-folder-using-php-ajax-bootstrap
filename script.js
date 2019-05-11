@@ -153,4 +153,50 @@ $(function () {
 
     })
 
+    $('#gitStaus').on('click', function(e){
+        e.preventDefault();
+        var thisElement = $(this);
+        $.ajax({
+            url: thisElement.parents('form').attr('action'),
+            method: 'POST',
+            data: {
+                gitStatus: true
+            },
+            success: function (data) {
+                var result = JSON.parse(data);
+                thisElement.parents('.git-status').find('.alert').removeClass('d-none');
+                thisElement.parents('.git-status').find('.responseText').html(result);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+    $('#gitadd').on('click', function(e){
+        e.preventDefault();
+        var thisElement = $(this);
+        var file = $('#gitaddinput').val();
+        $.ajax({
+            url: thisElement.parents('form').attr('action'),
+            method: 'POST',
+            data: {
+                gitadd: file
+            },
+            success: function (data) {
+                // var result = JSON.parse(data);
+                // thisElement.parents('.git-status').find('.alert').removeClass('d-none');
+                // thisElement.parents('.git-status').find('.responseText').html(result);
+                console.log(data);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+    $('#navId a').on('click', function(e){
+        e.preventDefault();
+        $(this).tab('show');
+    });
 }); 

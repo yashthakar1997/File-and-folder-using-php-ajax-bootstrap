@@ -6,7 +6,6 @@ if(isset($_POST['show_files'])){
     $response = scandir(getcwd());
 }
 
-
 if(isset($_POST['getContent'])){
     $fileTocheck = substr($_POST['getContent'],1);
     if(is_dir($fileTocheck)){
@@ -51,6 +50,18 @@ if (isset($_FILES['image'])) {
             $response[0] = $_FILES['image']['name'][0] . ' File successfully uploaded  ';
         }
     }
+}
+
+if(isset($_POST['gitStatus'])){
+    $command = 'git status'; 
+    $response = shell_exec($command);
+}
+
+if(isset($_POST['gitadd'])){
+    $command = 'git add ' . $_POST['gitadd']; 
+    var_dump( shell_exec($command) );
+    $response = shell_exec('git commit -m '."'test'");
+    // echo $response;
 }
 
 echo json_encode($response);
