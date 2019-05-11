@@ -25,17 +25,16 @@ $(function () {
                     result.shift();
                     if (result.length != 0) {
                         result.forEach(element => {
-                            console.log(element);
-                                var isFile = element[1].substr(element.lastIndexOf('.') + 1);
+                                var isFile = element[1].substr(element[1].lastIndexOf('.') + 1);
                                 if(isFile == element[1]){
-                                    console.log('folder '+ element[1]);
-                                    newElement += ' <div class="col-sm-3"><a href="/' + element[1] + '"> <i class="fas fa-folder text-primary display-4"></i><p> ' + element + ' </p> </a> </div>';
+                                    // console.log('folder '+ element[1]);
+                                    newElement += ' <div class="col-sm-3"><a href="' + thisElement.attr('href') + '/' + element[1] + '"> <i class="fas fa-folder text-primary display-4"></i><p> ' + element[1] + ' </p> </a> </div>';
                                 } else {
-                                    console.log('file '+ element[1]);
-                                    newElement += ' <div class="col-sm-3"> <a href="/' + element[1] + '"> <i class="fas fa-file text-primary display-4"></i><p>' + element + '</p> </a> </div>';
+                                    // console.log('file '+ element[1]);
+                                    newElement += ' <div class="col-sm-3"> <a href="' + thisElement.attr('href') + '/' + element[1] + '"> <i class="fas fa-file text-primary display-4"></i><p>' + element[1] + '</p> </a> </div>';
                                 }
-                                $('.show-folder .modal-body').html('<div class="row p-4">' + newElement + '</div>');
-                        });
+                            });
+                            $('.show-folder .modal-body').html('<div class="row p-4">' + newElement + '</div>');
                     } else {
                         $('.show-folder .modal-body').text('Empty Folder');
                     }

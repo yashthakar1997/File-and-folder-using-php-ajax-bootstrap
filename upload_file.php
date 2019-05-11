@@ -34,6 +34,10 @@ if(isset($_POST['createNewFolder'])){
 
 if (isset($_FILES['image'])) {
     $numOfFiles = count($_FILES['image']['name']);
+    if(!file_exists('uploads')) {
+        mkdir('uploads');
+    }
+
     if ($numOfFiles > 1) {
         for ($i=0; $i < $numOfFiles; $i++) { 
             $file[$i] = move_uploaded_file($_FILES['image']['tmp_name'][$i],
