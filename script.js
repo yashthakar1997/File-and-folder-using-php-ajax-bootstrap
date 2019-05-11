@@ -26,7 +26,14 @@ $(function () {
                     if (result.length != 0) {
                         result.forEach(element => {
                                 var isFile = element[1].substr(element[1].lastIndexOf('.') + 1);
-                                if(isFile == element[1]){
+                                console.log(isFile);
+                                if (isFile == 'png') {
+                                    var imgsrc = element[1].replace(' ', '%20');
+                                    newElement += ' <div class="col-sm-3"><a href="' + thisElement.attr('href') + '/' + element[1] + '"><img src=' + thisElement.attr('href') + '/' + imgsrc + ' > </a> </div>';
+                                } else if (isFile == 'jpg' ){
+                                    var imgsrc = element[1].replace(' ', '%20');
+                                    newElement += ' <div class="col-sm-3"><a href="' + thisElement.attr('href') + '/' + element[1] + '"><img src=' + thisElement.attr('href') + '/' + imgsrc + ' > </a> </div>';
+                                } else if(isFile == element[1]){
                                     // console.log('folder '+ element[1]);
                                     newElement += ' <div class="col-sm-3"><a href="' + thisElement.attr('href') + '/' + element[1] + '"> <i class="fas fa-folder text-primary display-4"></i><p> ' + element[1] + ' </p> </a> </div>';
                                 } else {
